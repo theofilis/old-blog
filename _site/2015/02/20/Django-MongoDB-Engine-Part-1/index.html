@@ -1,0 +1,121 @@
+<p>= Django MongoDB Engine [Part 1]
+:hp-tags: python,mongo,django</p>
+
+<p>:numbered:</p>
+
+<p>== Installation</p>
+
+<p>Django MongoDB Engine depends on</p>
+
+<ul>
+  <li>link:http://django-nonrel.org/[Django-nonrel], a fork of Django that adds support for non-relational databases.</li>
+  <li>link:https://github.com/django-nonrel/djangotoolbox[djangotoolbox], a bunch of utilities for non-relational Django applications and backends.</li>
+</ul>
+
+<p>It’s highly recommended (although not required) to use a link:http://www.virtualenv.org/[virtualenv] for your project to not mess up other Django setups.</p>
+
+<p>=== virtualenv</p>
+
+<p><em>virtualenv</em> is a tool to create isolated Python environments.</p>
+
+<p>If not already installed, grab a copy from the Cheeseshop:</p>
+
+<h2 id="sourcebash">[source,bash]</h2>
+<p>pip install virtualenv
+—-</p>
+
+<p>To set up a virtual environment for your project, use</p>
+
+<h2 id="sourcebash-1">[source,bash]</h2>
+<p>virtualenv myproject
+—-</p>
+
+<p>To join the environment, use (in Bash):</p>
+
+<h2 id="sourcebash-2">[source,bash]</h2>
+<p>source myproject/bin/activate
+—-</p>
+
+<p>=== Django-nonrel
+Django fork with support for NoSQL databases</p>
+
+<h2 id="sourcebash-3">[source,bash]</h2>
+<p>pip install git+https://github.com/django-nonrel/django@nonrel-1.7
+—-</p>
+
+<p>=== djangotoolbox</p>
+
+<p>Djangotoolbox provides a common API for running Django on non-relational/NoSQL databases.</p>
+
+<h2 id="sourcebash-4">[source,bash]</h2>
+<p>pip install git+https://github.com/django-nonrel/djangotoolbox
+—-</p>
+
+<p>The djangotoolbox.admin module provides admin overrides for making django.contrib.auth work correctly in the admin UI. Simply add ‘djangotoolbox’ to INSTALLED_APPS after django.contrib.admin.</p>
+
+<p>This will disable features that require JOINs. If you still need permission handling you should use the nonrel permission backend.</p>
+
+<p>==== django-permission-backend-nonrel</p>
+
+<p>A Django authentication backend that supports Django’s user and group permissions on Django-Nonrel.</p>
+
+<ul>
+  <li>
+    <p>Get the code from Github:</p>
+
+    <p>git clone https://github.com/django-nonrel/django-permission-backend-nonrel.git</p>
+  </li>
+  <li>
+    <p>add <em>permission_backend_nonrel.backends.NonrelPermissionBackend</em> to your AUTHENTICATION_BACKENDS and <em>permission_backend_nonrel</em> to your INSTALLED_APPS</p>
+
+    <p>settings.py:</p>
+
+    <p>AUTHENTICATION_BACKENDS = (
+      …
+      ‘permission_backend_nonrel.backends.NonrelPermissionBackend’,
+  )</p>
+
+    <p>INSTALLED_APPS = (
+      …
+      ‘permission_backend_nonrel’,
+  )</p>
+  </li>
+  <li>
+    <p>It’s important to put ‘permission_backend_nonrel after djangotoolbox, because permission_backend_nonrel.admin replaces djangotoolbox’s User admin site.
++
+Permission and groups can be assigned and modified via Django’s admin interface:
++
+link:https://camo.githubusercontent.com/603ca1906c7fe866050b50b90337e9a8925a3301/687474703a2f2f666c6f6f6f6f66696c65732e61707073706f742e636f6d2f73657276652f66696c65732f61646d696e2e6a7065672f[Django-nonrel admin with user_permissions and groups]
++
+Django-gaeauth admin interface with user_permissions and groups</p>
+  </li>
+  <li>
+    <p>Now you should be able to use all the standard Django permission methods and decorators, like user.has_perm(‘foo’) and so on.</p>
+  </li>
+</ul>
+
+<p>=== Django MongoDB Engine</p>
+
+<p>You should use the latest Git
+revision.</p>
+
+<h2 id="sourcebash-5">[source,bash]</h2>
+<p>pip install git+https://github.com/django-nonrel/mongodb-engine
+—-</p>
+
+<p>== Configuration</p>
+
+<p>Database setup is easy (see also the link:https://docs.djangoproject.com/en/dev/ref/settings/#databases[Django database setup docs]):</p>
+
+<h2 id="sourcepython">[source,python]</h2>
+<p>DATABASES = {
+   ‘default’ : {
+      ‘ENGINE’ : ‘django_mongodb_engine’,
+      ‘NAME’ : ‘my_database’
+   }
+}
+—-</p>
+
+<p>Django MongoDB Engine also takes into account the HOST, PORT, USER, PASSWORD and OPTIONS settings.</p>
+
+<p>Possible values of OPTIONS are described in the link:https://django-mongodb-engine.readthedocs.org/en/latest/reference/settings.html[settings reference].</p>

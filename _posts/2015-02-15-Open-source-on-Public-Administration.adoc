@@ -1,1 +1,0 @@
-= Open source on Public Administration
