@@ -6,4 +6,3 @@ author:     "George Theofilis"
 header-img: "img/post-bg-02.jpg"
 ---
 
-= Open source on Public Administration

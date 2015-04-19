@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Write your site description here. It will be used as your sites meta description as well!">
 
-    <title>Install Laravel Administrator on Laravel 5 - Clean Blog</title>
+    <title>Beaver Installation - Clean Blog</title>
 
-    <link rel="canonical" href="http://yourdomain.com/2015/03/02/Install-Laravel-Administrator-on-Laravel-5/">
+    <link rel="canonical" href="http://yourdomain.com/2015/04/19/Beaver-Installation/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -81,9 +81,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Install Laravel Administrator on Laravel 5</h1>
+                    <h1>Beaver Installation</h1>
                     
-                    <span class="meta">Posted by George Theofilis on March 2, 2015</span>
+                    <span class="meta">Posted by George Theofilis on April 19, 2015</span>
                 </div>
             </div>
         </div>
@@ -96,25 +96,52 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Administrator is an administrative interface builder for Laravel. With Administrator you can visually manage your Eloquent models and their relations, and also create stand-alone settings pages for storing site data and performing site tasks.</p>
+				<h2 id="introduction">Introduction</h2>
+
+<p>Beaver provides an lightweight method for shipping local log files to Logstash. It does this using redis, zeromq, tcp, udp, rabbit or stdout as the transport. This means you’ll need a redis, zeromq, tcp, udp, amqp or stdin input somewhere down the road to get the events.</p>
+
+<p>Events are sent in logstash’s json_event format. Options can also be set as environment variables.</p>
 
 <h2 id="installation">Installation</h2>
 
-<p>To install Administrator as a Composer package to be used with Laravel 5, simply add this to your composer.json:</p>
+<h3 id="requirements">Requirements</h3>
 
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;frozennode/administrator&quot;</span><span class="err">:</span> <span class="s2">&quot;5.*&quot;</span></code></pre></div>
+<ul>
+  <li>Python 2.6+</li>
+  <li>Optional zeromq support: install libzmq (brew install zmq or apt-get install libzmq-dev) and pyzmq (pip install pyzmq==2.1.11</li>
+</ul>
 
-<p>..and run composer update. Once it’s installed, you can register the service provider in config/app.php in the providers array:</p>
+<h3 id="distribute--pip">Distribute &amp; Pip</h3>
 
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&#39;providers&#39; =&gt; [</span>
-<span class="x">    &#39;Frozennode\Administrator\AdministratorServiceProvider&#39;,</span>
-<span class="x">]</span></code></pre></div>
+<p>Installing Beaver is simple with pip:</p>
 
-<p>Then publish Administrator’s assets with <strong>php artisan vendor:publish</strong>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo pip install beaver</code></pre></div>
 
-<p>This will add the file config/administrator.php. This config file is the primary way you interact with Administrator. This command will also publish all of the assets, views, and translation files.</p>
+<h2 id="usage">Usage</h2>
 
-<h2 id="settings-configuration">Settings Configuration</h2>
+<h3 id="create-configuration-folders">Create configuration folders</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo mkdir /etc/beaver
+sudo mkdir /etc/beaver/conf.d/
+sudo <span class="nb">cd</span> /etc/beaver/</code></pre></div>
+
+<h3 id="create-configuration-files">Create configuration files</h3>
+
+<h4 id="etcbeaverconf">/etc/beaver/conf</h4>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>beaver<span class="o">]</span>
+format: json
+logstash_version: 1</code></pre></div>
+
+<h4 id="etcbeaverconfdsyslog">/etc/beaver/conf.d/syslog</h4>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>/var/log/syslog<span class="o">]</span>
+<span class="nb">type</span>: syslog
+tags: sys,main</code></pre></div>
+
+<h3 id="start-beaver-daemon">Start beaver daemon</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">beaver -c /etc/beaver/conf -C /etc/beaver/conf.d</code></pre></div>
 
 
                 <hr>
@@ -122,13 +149,9 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2015/03/02/How-to-enable-mod_rewrite-in-Apache/" data-toggle="tooltip" data-placement="top" title="How to enable mod_rewrite in Apache?">&larr; Previous Post</a>
+                        <a href="/2015/04/17/how-to-install-and-configure-dnsmasq/" data-toggle="tooltip" data-placement="top" title="How to Install and Configure dnsmasq">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2015/03/02/MySQL-Docker/" data-toggle="tooltip" data-placement="top" title="MySQL Docker">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 

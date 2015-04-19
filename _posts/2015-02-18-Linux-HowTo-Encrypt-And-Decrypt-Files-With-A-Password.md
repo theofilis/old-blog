@@ -4,65 +4,65 @@ title:      "Linux: HowTo Encrypt And Decrypt Files With A Password"
 date:       2015-02-18 12:00:00
 author:     "George Theofilis"
 header-img: "img/post-bg-02.jpg"
+tags: 
+- linux 
+- security
 ---
-
-:hp-tags: linux, security
 
 To encrypt and decrypt files with a password, use gpg command. It is an encryption and signing tool for Linux/UNIX like operating system such as FreeBSD/Solaris and others.
 
-:numbered:
-
-== gnupg
+## gnupg
 
 GnuPG stands for GNU Privacy Guard and is GNU's tool for secure communication and data storage. It can be used to encrypt data and to create digital signatures. It includes an advanced key management facility.
 
-=== Encrypting a file in linux
+### Encrypting a file in linux
 
 To encrypt a single file, use command gpg as follows:
 
-[source,bash]
-----
+{% highlight bash %}
 $ gpg -c filename
-----
+{% endhighlight %}
 
 To encrypt myfinancial.info.txt file, type the command:
-[source,bash]
-----
+{% highlight bash %}
 $ gpg -c myfinancial.info.txt
-----
+{% endhighlight %}
 
 Sample output:
-[source,bash]
-----
+{% highlight bash %}
 Enter passphrase:<YOUR-PASSWORD>
 Repeat passphrase:<YOUR-PASSWORD>
-----
+{% endhighlight %}
 
 This will create a myfinancial.info.txt.gpg file. Where,
 
--c :: Encrypt with symmetric cipher using a passphrase. The default symmetric cipher used is CAST5, but may be chosen with the --cipher-algo option. This option may be combined with --sign (for a signed and symmetrically encrypted message), --encrypt (for a message that may be decrypted via a secret key or a passphrase), or --sign and --encrypt together (for a signed message that may be decrypted via a secret key or a passphrase).
+<dl>
+	<dt>
+		<strong>-c</strong>
+	</dt> 
+	<dd>
+	Encrypt with symmetric cipher using a passphrase. The default symmetric cipher used is CAST5, but may be chosen with the <strong>--cipher-algo</strong> option. This option may be combined with <strong>--sign</strong> (for a signed and symmetrically encrypted message), <strong>--encrypt</strong> (for a message that may be decrypted via a secret key or a passphrase), or --sign and --encrypt together (for a signed message that may be decrypted via a secret key or a passphrase).
+	</dd>
+</dl>
 
 Please note that if you ever forgot your password (passphrase), you cannot recover the data as it use very strong encryption.
 
-=== Decrypt a file
+### Decrypt a file
 
 To decrypt file use the gpg command as follow:
-[source,bash]
-----
+{% highlight bash %}
 $ gpg myfinancial.info.txt.gpg
-----
+{% endhighlight %}
 Sample outputs:
-[source,bash]
-----
+{% highlight bash %}
 gpg myfinancial.info.txt.gpg
 gpg: CAST5 encrypted data
 Enter passphrase:<YOUR-PASSWORD>
-----
+{% endhighlight %}
 Decrypt file and write output to file vivek.info.txt you can run command:
-[source,bash]
-----
+{% highlight bash %}
 $ gpg myfinancial.info.gpg –o vivek.info.txt
-----
+{% endhighlight %}
 Also note that if file extension is .asc, it is a ASCII encrypted file and if file extension is .gpg, it is a binary encrypted file.
 
-Reblog from link:http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html[nixCraft]
+Reblog from [nixCraft](http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html)

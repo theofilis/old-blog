@@ -96,41 +96,31 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>:hp-tags: solr, information retrieve</p>
-
-<p>We have a large collection of medical files and we want to search and find similar symptoms to give a diagnosis. The medical files are in
+				<p>We have a large collection of medical files and we want to search and find similar symptoms to give a diagnosis. The medical files are in
 two languages greek and english, this is our main problem. Another problem we have is the meta information of the document are not well
 document and we have to extract them from the document.</p>
 
-<p>:numbered:</p>
+<h2 id="test-processing--data-cleaning">Test Processing &amp; Data Cleaning</h2>
 
-<p>== Test Processing &amp; Data Cleaning</p>
+<h2 id="data-indexing">Data Indexing</h2>
 
-<p>== Data Indexing</p>
+<h3 id="solr-on-docker">Solr on Docker</h3>
 
-<p>=== Solr on Docker</p>
+<p>This repository triggers the <a href="https://index.docker.io/u/makuk66/docker-solr/">makuk66/docker-solr</a> trusted build on the Docker index. To run:</p>
 
-<p>This repository triggers the link:https://index.docker.io/u/makuk66/docker-solr/[makuk66/docker-solr] trusted build on the Docker index. To run:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">docker pull makuk66/docker-solr
+docker run -it -p 8983:8983 -t makuk66/docker-solr</code></pre></div>
 
-<h2 id="sourcebash">[source,bash]</h2>
-<p>docker pull makuk66/docker-solr
-docker run -it -p 8983:8983 -t makuk66/docker-solr
-—-</p>
+<p>Then go to <a href="http://localhost:8983/solr">http://localhost:8983/solr</a> (adjust the hostname for your docker server).</p>
 
-<p>Then go to http://localhost:8983/solr (adjust the hostname for your docker server).</p>
+<h3 id="configure-collection-index">Configure collection index</h3>
 
-<p>=== Configure collection index</p>
+<h4 id="greek-language">Greek Language</h4>
 
-<p>==== Greek Language</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;filter</span> <span class="na">class=</span><span class="s">&quot;solr.GreekLowerCaseFilterFactory&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;filter</span> <span class="na">class=</span><span class="s">&quot;solr.GreekStemFilterFactory&quot;</span><span class="nt">/&gt;</span></code></pre></div>
 
-<h2 id="sourcexml">[source,xml]</h2>
-<filter class="solr.GreekLowerCaseFilterFactory" />
-
-<filter class="solr.GreekStemFilterFactory" />
-
-<hr />
-
-<p>== Evaluation of searching method</p>
+<h2 id="evaluation-of-searching-method">Evaluation of searching method</h2>
 
 
                 <hr>

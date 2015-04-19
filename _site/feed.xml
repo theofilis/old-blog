@@ -5,9 +5,65 @@
     <description>Write your site description here. It will be used as your sites meta description as well!</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 17 Apr 2015 10:50:13 +0300</pubDate>
-    <lastBuildDate>Fri, 17 Apr 2015 10:50:13 +0300</lastBuildDate>
+    <pubDate>Sun, 19 Apr 2015 14:14:35 +0300</pubDate>
+    <lastBuildDate>Sun, 19 Apr 2015 14:14:35 +0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Beaver Installation</title>
+        <description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Beaver provides an lightweight method for shipping local log files to Logstash. It does this using redis, zeromq, tcp, udp, rabbit or stdout as the transport. This means you’ll need a redis, zeromq, tcp, udp, amqp or stdin input somewhere down the road to get the events.&lt;/p&gt;
+
+&lt;p&gt;Events are sent in logstash’s json_event format. Options can also be set as environment variables.&lt;/p&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Python 2.6+&lt;/li&gt;
+  &lt;li&gt;Optional zeromq support: install libzmq (brew install zmq or apt-get install libzmq-dev) and pyzmq (pip install pyzmq==2.1.11&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;distribute--pip&quot;&gt;Distribute &amp;amp; Pip&lt;/h3&gt;
+
+&lt;p&gt;Installing Beaver is simple with pip:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pip install beaver&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;h3 id=&quot;create-configuration-folders&quot;&gt;Create configuration folders&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo mkdir /etc/beaver
+sudo mkdir /etc/beaver/conf.d/
+sudo &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /etc/beaver/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;create-configuration-files&quot;&gt;Create configuration files&lt;/h3&gt;
+
+&lt;h4 id=&quot;etcbeaverconf&quot;&gt;/etc/beaver/conf&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;beaver&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+format: json
+logstash_version: 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;etcbeaverconfdsyslog&quot;&gt;/etc/beaver/conf.d/syslog&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/var/log/syslog&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: syslog
+tags: sys,main&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;start-beaver-daemon&quot;&gt;Start beaver daemon&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;beaver -c /etc/beaver/conf -C /etc/beaver/conf.d&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sun, 19 Apr 2015 15:00:00 +0300</pubDate>
+        <link>http://yourdomain.com/2015/04/19/Beaver-Installation/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2015/04/19/Beaver-Installation/</guid>
+        
+        
+      </item>
     
       <item>
         <title>How to Install and Configure dnsmasq</title>
@@ -31,7 +87,7 @@ couldn&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;t be verified beca
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D27D666CD88E42B4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;and then update &lt;/p&gt;
+&lt;p&gt;and then update&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
@@ -107,7 +163,7 @@ couldn&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;t be verified beca
 &lt;span class=&quot;x&quot;&gt;    &amp;#39;Frozennode\Administrator\AdministratorServiceProvider&amp;#39;,&lt;/span&gt;
 &lt;span class=&quot;x&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Then publish Administrator’s assets with &lt;strong&gt;php artisan vendor:publish&lt;/strong&gt;. &lt;/p&gt;
+&lt;p&gt;Then publish Administrator’s assets with &lt;strong&gt;php artisan vendor:publish&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;This will add the file config/administrator.php. This config file is the primary way you interact with Administrator. This command will also publish all of the assets, views, and translation files.&lt;/p&gt;
 
@@ -157,7 +213,7 @@ couldn&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;t be verified beca
     
       <item>
         <title>Den Anoigei O Ypologisths 44 Bhmata Gia Diagnwsh</title>
-        <description>&lt;p&gt;= Δεν ανοίγει ο υπολογιστής? 4+4 Βήματα για Διάγνωση! &lt;/p&gt;
+        <description>&lt;p&gt;= Δεν ανοίγει ο υπολογιστής? 4+4 Βήματα για Διάγνωση!&lt;/p&gt;
 
 &lt;p&gt;Πατάτε το κουμπί του υπολογιστή και είτε σας υποδέχεται μια μαύρη οθόνη είτε, ακόμα χειρότερα, δεν ανάβει καν. Πριν σας πιάσει πανικός που δεν ανοίγει ο υπολογιστής και αρχίσετε να ψάχνετε τεχνικό, υπάρχουν μερικά βήματα που μπορείτε να ακολουθήσετε, για να βρείτε τι φταίει και ίσως να το διορθώσετε!&lt;/p&gt;
 
@@ -385,13 +441,8 @@ couldn&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;t be verified beca
       </item>
     
       <item>
-        <title>Django Mongodb Engine Part 1</title>
-        <description>&lt;p&gt;= Django MongoDB Engine [Part 1]
-:hp-tags: python,mongo,django&lt;/p&gt;
-
-&lt;p&gt;:numbered:&lt;/p&gt;
-
-&lt;p&gt;== Installation&lt;/p&gt;
+        <title>Django MongoDB Engine [Part 1]</title>
+        <description>&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
 &lt;p&gt;Django MongoDB Engine depends on&lt;/p&gt;
 
@@ -402,48 +453,38 @@ couldn&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;t be verified beca
 
 &lt;p&gt;It’s highly recommended (although not required) to use a link:http://www.virtualenv.org/[virtualenv] for your project to not mess up other Django setups.&lt;/p&gt;
 
-&lt;p&gt;=== virtualenv&lt;/p&gt;
+&lt;h3 id=&quot;virtualenv&quot;&gt;virtualenv&lt;/h3&gt;
 
 &lt;p&gt;&lt;em&gt;virtualenv&lt;/em&gt; is a tool to create isolated Python environments.&lt;/p&gt;
 
 &lt;p&gt;If not already installed, grab a copy from the Cheeseshop:&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;pip install virtualenv
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install virtualenv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;To set up a virtual environment for your project, use&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash-1&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;virtualenv myproject
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;virtualenv myproject&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;To join the environment, use (in Bash):&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash-2&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;source myproject/bin/activate
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;myproject/bin/activate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;=== Django-nonrel
-Django fork with support for NoSQL databases&lt;/p&gt;
+&lt;h3 id=&quot;django-nonrel&quot;&gt;Django-nonrel&lt;/h3&gt;
+&lt;p&gt;Django fork with support for NoSQL databases&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash-3&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;pip install git+https://github.com/django-nonrel/django@nonrel-1.7
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install git+https://github.com/django-nonrel/django@nonrel-1.7&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;=== djangotoolbox&lt;/p&gt;
+&lt;h3 id=&quot;djangotoolbox&quot;&gt;djangotoolbox&lt;/h3&gt;
 
 &lt;p&gt;Djangotoolbox provides a common API for running Django on non-relational/NoSQL databases.&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash-4&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;pip install git+https://github.com/django-nonrel/djangotoolbox
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install git+https://github.com/django-nonrel/djangotoolbox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The djangotoolbox.admin module provides admin overrides for making django.contrib.auth work correctly in the admin UI. Simply add ‘djangotoolbox’ to INSTALLED_APPS after django.contrib.admin.&lt;/p&gt;
 
 &lt;p&gt;This will disable features that require JOINs. If you still need permission handling you should use the nonrel permission backend.&lt;/p&gt;
 
-&lt;p&gt;==== django-permission-backend-nonrel&lt;/p&gt;
+&lt;h4 id=&quot;django-permission-backend-nonrel&quot;&gt;django-permission-backend-nonrel&lt;/h4&gt;
 
 &lt;p&gt;A Django authentication backend that supports Django’s user and group permissions on Django-Nonrel.&lt;/p&gt;
 
@@ -482,120 +523,115 @@ Django-gaeauth admin interface with user_permissions and groups&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;=== Django MongoDB Engine&lt;/p&gt;
+&lt;h3 id=&quot;django-mongodb-engine&quot;&gt;Django MongoDB Engine&lt;/h3&gt;
 
 &lt;p&gt;You should use the latest Git
 revision.&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash-5&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;pip install git+https://github.com/django-nonrel/mongodb-engine
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install git+https://github.com/django-nonrel/mongodb-engine&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;== Configuration&lt;/p&gt;
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;/h2&gt;
 
 &lt;p&gt;Database setup is easy (see also the link:https://docs.djangoproject.com/en/dev/ref/settings/#databases[Django database setup docs]):&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcepython&quot;&gt;[source,python]&lt;/h2&gt;
-&lt;p&gt;DATABASES = {
-   ‘default’ : {
-      ‘ENGINE’ : ‘django_mongodb_engine’,
-      ‘NAME’ : ‘my_database’
-   }
-}
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s&quot;&gt;&amp;#39;default&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;&amp;#39;ENGINE&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;django_mongodb_engine&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;&amp;#39;NAME&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;my_database&amp;#39;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Django MongoDB Engine also takes into account the HOST, PORT, USER, PASSWORD and OPTIONS settings.&lt;/p&gt;
 
-&lt;p&gt;Possible values of OPTIONS are described in the link:https://django-mongodb-engine.readthedocs.org/en/latest/reference/settings.html[settings reference].&lt;/p&gt;
+&lt;p&gt;Possible values of OPTIONS are described in the &lt;a href=&quot;https://django-mongodb-engine.readthedocs.org/en/latest/reference/settings.html&quot;&gt;settings reference&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 20 Feb 2015 00:00:00 +0200</pubDate>
+        <pubDate>Fri, 20 Feb 2015 14:00:00 +0200</pubDate>
         <link>http://yourdomain.com/2015/02/20/Django-MongoDB-Engine-Part-1/</link>
         <guid isPermaLink="true">http://yourdomain.com/2015/02/20/Django-MongoDB-Engine-Part-1/</guid>
+        
+        <category>python</category>
+        
+        <category>mongo</category>
+        
+        <category>django</category>
         
         
       </item>
     
       <item>
         <title>Linux: HowTo Encrypt And Decrypt Files With A Password</title>
-        <description>&lt;p&gt;:hp-tags: linux, security&lt;/p&gt;
+        <description>&lt;p&gt;To encrypt and decrypt files with a password, use gpg command. It is an encryption and signing tool for Linux/UNIX like operating system such as FreeBSD/Solaris and others.&lt;/p&gt;
 
-&lt;p&gt;To encrypt and decrypt files with a password, use gpg command. It is an encryption and signing tool for Linux/UNIX like operating system such as FreeBSD/Solaris and others.&lt;/p&gt;
-
-&lt;p&gt;:numbered:&lt;/p&gt;
-
-&lt;p&gt;== gnupg&lt;/p&gt;
+&lt;h2 id=&quot;gnupg&quot;&gt;gnupg&lt;/h2&gt;
 
 &lt;p&gt;GnuPG stands for GNU Privacy Guard and is GNU’s tool for secure communication and data storage. It can be used to encrypt data and to create digital signatures. It includes an advanced key management facility.&lt;/p&gt;
 
-&lt;p&gt;=== Encrypting a file in linux&lt;/p&gt;
+&lt;h3 id=&quot;encrypting-a-file-in-linux&quot;&gt;Encrypting a file in linux&lt;/h3&gt;
 
 &lt;p&gt;To encrypt a single file, use command gpg as follows:&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;$ gpg -c filename
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg -c filename&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;To encrypt myfinancial.info.txt file, type the command:
-[source,bash]
-—-
-$ gpg -c myfinancial.info.txt
-—-&lt;/p&gt;
+&lt;p&gt;To encrypt myfinancial.info.txt file, type the command:&lt;/p&gt;
 
-&lt;p&gt;Sample output:
-[source,bash]
-—-
-Enter passphrase:&lt;your-password&gt;
-Repeat passphrase:&lt;your-password&gt;
-----&lt;/your-password&gt;&lt;/your-password&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg -c myfinancial.info.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sample output:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Enter passphrase:&amp;lt;YOUR-PASSWORD&amp;gt;
+Repeat passphrase:&amp;lt;YOUR-PASSWORD&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This will create a myfinancial.info.txt.gpg file. Where,&lt;/p&gt;
 
-&lt;p&gt;-c :: Encrypt with symmetric cipher using a passphrase. The default symmetric cipher used is CAST5, but may be chosen with the –cipher-algo option. This option may be combined with –sign (for a signed and symmetrically encrypted message), –encrypt (for a message that may be decrypted via a secret key or a passphrase), or –sign and –encrypt together (for a signed message that may be decrypted via a secret key or a passphrase).&lt;/p&gt;
+&lt;dl&gt;
+	&lt;dt&gt;
+		&lt;strong&gt;-c&lt;/strong&gt;
+	&lt;/dt&gt; 
+	&lt;dd&gt;
+	Encrypt with symmetric cipher using a passphrase. The default symmetric cipher used is CAST5, but may be chosen with the &lt;strong&gt;--cipher-algo&lt;/strong&gt; option. This option may be combined with &lt;strong&gt;--sign&lt;/strong&gt; (for a signed and symmetrically encrypted message), &lt;strong&gt;--encrypt&lt;/strong&gt; (for a message that may be decrypted via a secret key or a passphrase), or --sign and --encrypt together (for a signed message that may be decrypted via a secret key or a passphrase).
+	&lt;/dd&gt;
+&lt;/dl&gt;
 
 &lt;p&gt;Please note that if you ever forgot your password (passphrase), you cannot recover the data as it use very strong encryption.&lt;/p&gt;
 
-&lt;p&gt;=== Decrypt a file&lt;/p&gt;
+&lt;h3 id=&quot;decrypt-a-file&quot;&gt;Decrypt a file&lt;/h3&gt;
 
-&lt;p&gt;To decrypt file use the gpg command as follow:
-[source,bash]
-—-
-$ gpg myfinancial.info.txt.gpg
-—-
-Sample outputs:
-[source,bash]
-—-
-gpg myfinancial.info.txt.gpg
+&lt;p&gt;To decrypt file use the gpg command as follow:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg myfinancial.info.txt.gpg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sample outputs:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;gpg myfinancial.info.txt.gpg
 gpg: CAST5 encrypted data
-Enter passphrase:&lt;your-password&gt;
-----
-Decrypt file and write output to file vivek.info.txt you can run command:
-[source,bash]
-----
-$ gpg myfinancial.info.gpg –o vivek.info.txt
-----
-Also note that if file extension is .asc, it is a ASCII encrypted file and if file extension is .gpg, it is a binary encrypted file.&lt;/your-password&gt;&lt;/p&gt;
+Enter passphrase:&amp;lt;YOUR-PASSWORD&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;Reblog from link:http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html[nixCraft]&lt;/p&gt;
+&lt;p&gt;Decrypt file and write output to file vivek.info.txt you can run command:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg myfinancial.info.gpg –o vivek.info.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Also note that if file extension is .asc, it is a ASCII encrypted file and if file extension is .gpg, it is a binary encrypted file.&lt;/p&gt;
+
+&lt;p&gt;Reblog from &lt;a href=&quot;http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html&quot;&gt;nixCraft&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 18 Feb 2015 14:00:00 +0200</pubDate>
         <link>http://yourdomain.com/2015/02/18/Linux-HowTo-Encrypt-And-Decrypt-Files-With-A-Password/</link>
         <guid isPermaLink="true">http://yourdomain.com/2015/02/18/Linux-HowTo-Encrypt-And-Decrypt-Files-With-A-Password/</guid>
+        
+        <category>linux</category>
+        
+        <category>security</category>
         
         
       </item>
     
       <item>
         <title>Let's Chat on Ubuntu</title>
-        <description>&lt;p&gt;= Let’s Chat on Ubuntu
-:hp-tags: docker,chat,hot&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/6c55e0f17d53d100977a8c6d49ce9575681da0fd/687474703a2f2f692e696d6775722e636f6d2f7644626858756c2e706e67&quot; alt=&quot;let's chat&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Self-hosted chat app for small teams http://sdelements.github.io/lets-chat.&lt;/p&gt;
+&lt;p&gt;Self-hosted chat app for small teams &lt;a href=&quot;http://sdelements.github.io/lets-chat&quot;&gt;http://sdelements.github.io/lets-chat&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;image::https://camo.githubusercontent.com/6c55e0f17d53d100977a8c6d49ce9575681da0fd/687474703a2f2f692e696d6775722e636f6d2f7644626858756c2e706e67[let’s chat]&lt;/p&gt;
-
-&lt;p&gt;:numbered:&lt;/p&gt;
-
-&lt;p&gt;== Features and Stuff&lt;/p&gt;
+&lt;h2 id=&quot;features-and-stuff&quot;&gt;Features and Stuff&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;BYOS (bring your own server)&lt;/li&gt;
@@ -614,54 +650,37 @@ Also note that if file extension is .asc, it is a ASCII encrypted file and if fi
   &lt;li&gt;MIT Licensed&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;== Installation&lt;/p&gt;
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
-&lt;p&gt;=== Docker&lt;/p&gt;
+&lt;h3 id=&quot;docker&quot;&gt;Docker&lt;/h3&gt;
 
 &lt;p&gt;The current Docker file creates a Let’s Chat container, with no on-board MongoDB instance. It requires a link to a separate Mongo container.&lt;/p&gt;
 
 &lt;p&gt;Make sure you have Docker installed. The following is a basic example of how to use the Dockerfile. We recommend reading documentation and/or tutorials, if you have never used Docker before.&lt;/p&gt;
 
-&lt;h2 id=&quot;sourcebash&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;docker pull mongo
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;docker pull mongo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;sourcebash-1&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;git clone https://github.com/sdelements/lets-chat.git
-cd lets-chat
-docker build -t lets-chat .
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https://github.com/sdelements/lets-chat.git
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;lets-chat
+docker build -t lets-chat .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;sourcebash-2&quot;&gt;[source,bash]&lt;/h2&gt;
-&lt;p&gt;docker run -d –name db mongo
-docker run -p 5000:5000 –link db:db lets-chat
-—-&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;docker run -d --name db mongo
+docker run -p 5000:5000 --link db:db lets-chat&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can now access the app at http://localhost:5000.&lt;/p&gt;
 
-&lt;p&gt;Restart the service
-[source,bash]
-—-
-docker run start db
-docker run -p 5000:5000 –link db:db lets-chat
-—-&lt;/p&gt;
+&lt;p&gt;Restart the service&lt;/p&gt;
 
-&lt;p&gt;image::https://camo.githubusercontent.com/f59d2c3525b16e008c018fa3925841d69b8124a3/687474703a2f2f692e696d6775722e636f6d2f4334754d4436372e706e67[let’s chat]&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;docker run start db
+docker run -p 5000:5000 --link db:db lets-chat&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 18 Feb 2015 14:00:00 +0200</pubDate>
         <link>http://yourdomain.com/2015/02/18/Lets-Chat-on-Ubuntu/</link>
         <guid isPermaLink="true">http://yourdomain.com/2015/02/18/Lets-Chat-on-Ubuntu/</guid>
         
+        <category>docker</category>
         
-      </item>
-    
-      <item>
-        <title>Django REST Framework Tutorial</title>
-        <description>&lt;p&gt;= &lt;/p&gt;
-</description>
-        <pubDate>Mon, 16 Feb 2015 14:00:00 +0200</pubDate>
-        <link>http://yourdomain.com/2015/02/16/Django-REST-Framework-Tutorial/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2015/02/16/Django-REST-Framework-Tutorial/</guid>
+        <category>chat</category>
         
         
       </item>
