@@ -27,10 +27,10 @@
     "url": "//blog.george-theofilis.com/themes/uno"
   },
   "urls": {
-    "site": "http://blog.george-theofilis.com",
+    "site": "http://theofilis.github.io",
     "hubpress": "https://theofilis.github.io",
-    "theme": "//blog.george-theofilis.com/themes/uno",
-    "images": "http://blog.george-theofilis.com/images"
+    "theme": "//theofilis.github.io/themes/uno",
+    "images": "http://theofilis.github.io/images"
   },
   "initialisationConfigComponent": {
     "name": "initialise-configuration",
