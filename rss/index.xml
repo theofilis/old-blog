@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[George Theofilis]]></title><description><![CDATA[George Theofilis]]></description><link>http://theofilis.github.io</link><image><url>https://rsk-project.com/wp-content/uploads/2015/10/Athens-City-Break.jpg</url><title>George Theofilis</title><link>http://theofilis.github.io</link></image><generator>RSS for Node</generator><lastBuildDate>Wed, 06 Sep 2017 12:13:57 GMT</lastBuildDate><atom:link href="http://theofilis.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Install skype 4.3.0.37 on CentOS, RHEL & Fedora]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>skype is most popular application which is used to make a call over the Internet as FREE of cost. Skype to Skype calls &amp; message completely FREE and Skype to Landlines and mobile phones low calling rate compare with mobile phones. Skype Technologies S.A (Microsoft Corporation) announced the new release of Skype 4.3 for Linux on June 18th 2014. Read about Skype installation on Debain based systems &amp; Install skype on Ubuntu via PPA. Skype initially developed by Skype Technologies S.A. and founder Dave Horstman. Microsoft Corporation acquired Skype Technologies S.A. On May 2011 and doing further development now.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features_in_skype_4_3">Features in skype 4.3</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Updated UI</p>
+</li>
+<li>
+<p>Improved file transfer support when using multiple devices at once</p>
+</li>
+<li>
+<p>PulseAudio 3.0 and 4.0 support</p>
+</li>
+<li>
+<p>Skype to Skype calls</p>
+</li>
+<li>
+<p>Calls to mobiles and landlines</p>
+</li>
+<li>
+<p>Group calls</p>
+</li>
+<li>
+<p>Forward calls</p>
+</li>
+<li>
+<p>One to one and Group video calls</p>
+</li>
+<li>
+<p>Instant messaging, Voice messages &amp; SMS</p>
+</li>
+<li>
+<p>Send files</p>
+</li>
+<li>
+<p>Screen sharing</p>
+</li>
+<li>
+<p>Group screen sharing</p>
+</li>
+<li>
+<p>Lot of bug fixes with many new features and improvements. For complete change log</p>
+</li>
+<li>
+<p>For More Features</p>
+</li>
+<li>
+<p>skype official home page</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_enable_required_repositories">Install/Enable Required Repositories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Install/Enable the EPEL &amp; NUX Dextop Repositories for CentOS, RHEL and Scientific Linux. Also install the 32-bit versions of qtwebkit from repositories.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># For CentOS, RHEL, SL &amp; Fedora 21 &amp; older Systems #
+# yum install qtwebkit.i686
+
+# For CentOS, RHEL, SL &amp; Fedora 21 &amp; older Systems #
+# dnf install qtwebkit.i686</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_required_packages_as_per_centos_advice">Install Required Packages as per CentOS advice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The below list of packages should be installed on your system to run skype smoothly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># Install the necessary 32-bit packages #
+# yum install alsa-lib.i686 libXv.i686 libXScrnSaver.i686 gtk2-engines.i686 PackageKit-gtk-module.i686 libcanberra.i686 libcanberra-gtk2.i686
+
+# Install the necessary 32-bit audio packages #
+# yum install pulseaudio-libs.i686 alsa-plugins-pulseaudio.i686&lt;
+
+# Install the necessary 32-bit video package #
+# yum install libv4l.i686</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_download_the_skype_archive_file">Download the skype archive file</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the below command to download the skype 4.3 archive file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># wget http://download.skype.com/linux/skype-4.3.0.37.tar.bz2
+# tar -jxvf skype-4.3.0.37.tar.bz2</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_launcher_for_skype">Create Launcher for skype</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>For accessing the installed software on your system globally, you need to create the launcher file to /usr/bin/skyp and give executable permission then add the below script in that file. Save + Exit.</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># touch /usr/bin/skype
+# chmod 755 /usr/bin/skype
+
+# Add Launcher script #
+# nano /usr/bin/skype
+
+#!/bin/sh
+export SKYPE_HOME="/opt/skype-4.3.0.37"
+$SKYPE_HOME/skype --resources=$SKYPE_HOME $*</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_skype">Configuring skype</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to create the below list of Symbolic Links to make skype work properly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># ln -s /opt/skype-4.3.0.37/icons/SkypeBlue_48x48.png /usr/share/icons/skype.png
+# ln -s /opt/skype-4.3.0.37/icons/SkypeBlue_48x48.png /usr/share/pixmaps/skype.png
+# ln -s /opt/skype-4.3.0.37/skype.desktop /usr/share/applications/skype.desktop
+# ln -s /opt/skype-4.3.0.37/sounds/ /usr/share/sounds/
+# ln -s /opt/skype-4.3.0.37/lang/ /usr/share/lang/</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_launch_skype">Launch skype</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the below command to launch the skype from command line.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># skype</code></pre>
+</div>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2016/02/08/Install-skype-43037-on-Cent-O-S-R-H-E-L-Fedora.html</link><guid isPermaLink="true">http://theofilis.github.io/2016/02/08/Install-skype-43037-on-Cent-O-S-R-H-E-L-Fedora.html</guid><category><![CDATA[skype]]></category><category><![CDATA[centos]]></category><category><![CDATA[rhel]]></category><category><![CDATA[fedora]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Mon, 08 Feb 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Install Kibana]]></title><description><![CDATA[<div class="paragraph">
+<p>Download and install the Public Signing Key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add the repository definition to your /etc/apt/sources.list file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo "deb http://packages.elastic.co/kibana/4.4/debian stable main" | sudo tee -a /etc/apt/sources.list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run apt-get update and the repository is ready for use. You can install it with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get update &amp;&amp; sudo apt-get install kibana</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Configure Kibana to automatically start during bootup. If your distribution is using the System V version of init, run the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo update-rc.d kibana defaults 95 10</code></pre>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2016/02/08/Install-Kibana.html</link><guid isPermaLink="true">http://theofilis.github.io/2016/02/08/Install-Kibana.html</guid><category><![CDATA[elk]]></category><category><![CDATA[ubuntu]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Mon, 08 Feb 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Installing Oracle JDK]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Oracle JDK is the official JDK; however, it is no longer provided by Oracle as a default installation for Ubuntu.</p>
+</div>
+<div class="paragraph">
+<p>You can still install it using apt-get. To install any version, first execute the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_java_optional">Managing Java (optional)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When there are multiple Java installations on your Droplet, the Java version to use as default can be chosen. To do this, execute the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo update-alternatives --config java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It will usually return something like this if you have 2 installations (if you have more, it will of course return more):</p>
+</div>
+<div class="paragraph">
+<p>There are 2 choices for the alternative java (providing /usr/bin/java).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">Selection    Path                                            Priority   Status
+------------------------------------------------------------
+* 0            /usr/lib/jvm/java-7-oracle/jre/bin/java          1062      auto mode
+  1            /usr/lib/jvm/java-6-openjdk-amd64/jre/bin/java   1061      manual mode
+  2            /usr/lib/jvm/java-7-oracle/jre/bin/java          1062      manual mode
+
+Press enter to keep the current choice[*], or type selection number:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now choose the number to use as default. This can also be done for the Java compiler (javac):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo update-alternatives --config javac</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is the same selection screen as the previous command and should be used in the same way. This command can be executed for all other commands which have different installations. In Java, this includes but is not limited to: keytool, javadoc and jarsigner.
+Setting the "JAVA_HOME" environment variable</p>
+</div>
+<div class="paragraph">
+<p>To set the JAVA_HOME environment variable, which is needed for some programs, first find out the path of your Java installation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo update-alternatives --config java</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It returns something like:</p>
+</div>
+<div class="paragraph">
+<p>There are 2 choices for the alternative java (providing /usr/bin/java).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">Selection    Path                                            Priority   Status
+------------------------------------------------------------
+* 0            /usr/lib/jvm/java-7-oracle/jre/bin/java          1062      auto mode
+  1            /usr/lib/jvm/java-6-openjdk-amd64/jre/bin/java   1061      manual mode
+  2            /usr/lib/jvm/java-7-oracle/jre/bin/java          1062      manual mode
+
+Press enter to keep the current choice[*], or type selection number:</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The path of the installation is for each:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/usr/lib/jvm/java-7-oracle</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/usr/lib/jvm/java-6-openjdk-amd64</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/usr/lib/jvm/java-7-oracle</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy the path from your preferred installation and then edit the file /etc/environment:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo nano /etc/environment</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this file, add the following line (replacing YOUR_PATH by the just copied path):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">JAVA_HOME="YOUR_PATH"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That should be enough to set the environment variable. Now reload this file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">source /etc/environment</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Test it by executing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo $JAVA_HOME</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If it returns the just set path, the environment variable has been set successfully. If it doesn&#8217;t, please make sure you followed all steps correctly.</p>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2016/02/07/Installing-Oracle-J-D-K.html</link><guid isPermaLink="true">http://theofilis.github.io/2016/02/07/Installing-Oracle-J-D-K.html</guid><category><![CDATA[java]]></category><category><![CDATA[ubuntu]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Sun, 07 Feb 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Install Logstash]]></title><description><![CDATA[<div class="paragraph">
+<p>Download and install the Public Signing Key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save the repository definition to /etc/apt/sources.list.d/elasticsearch-2.x.list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo "deb http://packages.elastic.co/logstash/2.2/debian stable main" | sudo tee -a /etc/apt/sources.list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run sudo apt-get update and the repository is ready for use. You can install it with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get update &amp;&amp; sudo apt-get install logstash</code></pre>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2016/02/07/Install-Logstash.html</link><guid isPermaLink="true">http://theofilis.github.io/2016/02/07/Install-Logstash.html</guid><category><![CDATA[elk]]></category><category><![CDATA[ubuntu]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Sun, 07 Feb 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Install Elasticsearch]]></title><description><![CDATA[<div class="paragraph">
+<p>Download and install the Public Signing Key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save the repository definition to /etc/apt/sources.list.d/elasticsearch-2.x.list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Run apt-get update and the repository is ready for use. You can install it with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get update &amp;&amp; sudo apt-get install elasticsearch</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Configure Elasticsearch to automatically start during bootup. If your distribution is using SysV init, then you will need to run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo update-rc.d elasticsearch defaults 95 10</code></pre>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2016/02/07/Install-Elasticsearch.html</link><guid isPermaLink="true">http://theofilis.github.io/2016/02/07/Install-Elasticsearch.html</guid><category><![CDATA[elk]]></category><category><![CDATA[ubuntu]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Sun, 07 Feb 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[How do I fix the GPG error “NO_PUBKEY”?]]></title><description><![CDATA[<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">W: GPG error: http://packages.elasticsearch.org stable Release:
+The following signatures couldn't be verified because the public
+key is not available: NO_PUBKEY D27D666CD88E42B4</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Execute the following commands in terminal</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D27D666CD88E42B4</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and then update</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get update</code></pre>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/04/14/How-do-I-fix-the-G-P-G-error-N-O-P-U-B-K-E-Y.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/04/14/How-do-I-fix-the-G-P-G-error-N-O-P-U-B-K-E-Y.html</guid><category><![CDATA[gpg]]></category><category><![CDATA[debian]]></category><category><![CDATA[apt]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Tue, 14 Apr 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[MySQL Docker]]></title><description><![CDATA[<div class="sect1">
+<h2 id="_what_is_mysql">What is MySQL?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MySQL is (as of March 2014) the world&#8217;s second most widely used open-source relational database management system (RDBMS). It is named after co-founder Michael Widenius&#8217;s daughter, My. The SQL phrase stands for Structured Query Language.</p>
+</div>
+<div class="paragraph">
+<p>MySQL is a popular choice of database for use in web applications, and is a central component of the widely used LAMP open source web application software stack (and other 'AMP' stacks). LAMP is an acronym for “Linux, Apache, MySQL, Perl/PHP/Python.” Free-software-open source projects that require a full-featured database management system often use MySQL.</p>
+</div>
+<div class="paragraph">
+<p>Oracle Corporation and/or affiliates own the copyright and trademark for MySQL.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_use_this_image">How to use this image</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Start a mysql instance</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -d mysql</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Start a mysql instance and bind it on machine port.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">docker run --name some-mysql --env-file ./env.list -p 3306:3306 -d mysql</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The env.list file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">MYSQL_USER=&lt;name&gt;
+MYSQL_PASSWORD=&lt;pass&gt;
+MYSQL_ROOT_PASSWORD=&lt;pass&gt;
+MYSQL_DATABASE=&lt;db&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_environment_variables">Environment Variables</h3>
+<div class="paragraph">
+<p>The MySQL image uses several environment variables which are easy to miss. While not all the variables are required, they may significantly aid you in using the image.</p>
+</div>
+<div class="sect3">
+<h4 id="_mysql_root_password">MYSQL_ROOT_PASSWORD</h4>
+<div class="paragraph">
+<p>This is the one environment variable that is required for you to use the MySQL image. This environment variable should be what you want to set the root password for MySQL to. In the above example, it is being set to “mysecretpassword”.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mysql_user_mysql_password">MYSQL_USER, MYSQL_PASSWORD</h4>
+<div class="paragraph">
+<p>These optional environment variables are used in conjunction to set both a MySQL user and password, which will subsequently be granted all permissions for the database specified by the optional MYSQL_DATABASE variable. Note that if you only have one of these two environment variables, then neither will actually do anything - these two are meant to be used in conjunction with one another. When these variables are used, it will create a new user with the given password in the MySQL database - there is no need to specify MYSQL_USER with root, as the root user already exists in the default MySQL and the password is controlled by MYSQL_ROOT_PASSWORD.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mysql_database">MYSQL_DATABASE</h4>
+<div class="paragraph">
+<p>This optional environment variable denotes the name of a database to create. If a user/password was supplied (via the MYSQL_USER and MYSQL_PASSWORD environment variables) then that user account will be granted (GRANT ALL) access to this database.</p>
+</div>
+</div>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/03/02/My-S-Q-L-Docker.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/03/02/My-S-Q-L-Docker.html</guid><category><![CDATA[docker]]></category><category><![CDATA[mysql]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Mon, 02 Mar 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Install Laravel Administrator on Laravel 5]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Administrator is an administrative interface builder for Laravel. With Administrator you can visually manage your Eloquent models and their relations, and also create stand-alone settings pages for storing site data and performing site tasks.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">1. Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To install Administrator as a Composer package to be used with Laravel 5, simply add this to your composer.json:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"frozennode/administrator": "5.*"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>..and run composer update. Once it&#8217;s installed, you can register the service provider in config/app.php in the providers array:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-php" data-lang="php">'providers' =&gt; [
+    'Frozennode\Administrator\AdministratorServiceProvider',
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then publish Administrator&#8217;s assets with <strong>php artisan vendor:publish</strong>.</p>
+</div>
+<div class="paragraph">
+<p>This will add the file config/administrator.php. This config file is the primary way you interact with Administrator. This command will also publish all of the assets, views, and translation files.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings_configuration">2. Settings Configuration</h2>
+<div class="sectionbody">
+
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/03/02/Install-Laravel-Administrator-on-Laravel-5.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/03/02/Install-Laravel-Administrator-on-Laravel-5.html</guid><category><![CDATA[php]]></category><category><![CDATA[laravel 5]]></category><category><![CDATA[sql server]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Mon, 02 Mar 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[How to enable mod_rewrite in Apache?]]></title><description><![CDATA[<div class="paragraph">
+<p>To enable it the rewrite module, run "apache2 enable module rewrite":</p>
+</div>
+<div class="paragraph">
+<p>sudo a2enmod rewrite</p>
+</div>
+<div class="paragraph">
+<p>You need to restart the webserver to apply the changes:</p>
+</div>
+<div class="paragraph">
+<p>sudo service apache2 restart</p>
+</div>
+<div class="paragraph">
+<p>If you plan on using mod_rewrite in .htaccess files, you also need to enable the use of .htaccess files by changing AllowOverride None to AllowOverride FileInfo. For the default website, edit /etc/apache2/sites-available/default:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;Directory /var/www/&gt;
+        Options Indexes FollowSymLinks MultiViews
+        # changed from None to FileInfo
+        AllowOverride FileInfo
+        Order allow,deny
+        allow from all
+&lt;/Directory&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After such a change, you need to restart Apache again.</p>
+</div>]]></description><link>http://theofilis.github.io/2015/03/02/How-to-enable-mod-rewrite-in-Apache.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/03/02/How-to-enable-mod-rewrite-in-Apache.html</guid><category><![CDATA[apache2]]></category><category><![CDATA[debian]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Mon, 02 Mar 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Δεν ανοίγει ο υπολογιστής? 4+4 Βήματα για Διάγνωση!]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Πατάτε το κουμπί του υπολογιστή και είτε σας υποδέχεται μια μαύρη οθόνη είτε, ακόμα χειρότερα, δεν ανάβει καν. Πριν σας πιάσει πανικός που δεν ανοίγει ο υπολογιστής και αρχίσετε να ψάχνετε τεχνικό, υπάρχουν μερικά βήματα που μπορείτε να ακολουθήσετε, για να βρείτε τι φταίει και ίσως να το διορθώσετε!</p>
+</div>
+<div class="paragraph">
+<p>Ο οδηγός αυτός εξετάζει δύο περιπτώσεις, με 4 βήματα στην καθεμία (εξ 'ου και τα 4+4 βήματα του τίτλου):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ο υπολογιστής δεν ανάβει καθόλου, και δεν ακούγεται κανένας θόρυβος λειτουργίας.</p>
+</li>
+<li>
+<p>Ο υπολογιστής ανάβει, αλλά η οθόνη παραμένει μαύρη, δεν δείχνει ούτε το λογότυπο του κατασκευαστή ούτε τα λευκά γράμματα του BIOS.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-01.png" alt="Bios"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν βλέπετε δραστηριότητα σαν την παραπάνω στην οθόνη αλλά δεν μπορείτε να μπείτε στα Windows, αυτό είναι το θέμα ενός ξεχωριστού οδηγού "Γιατί δεν ανοίγουν τα Windows", τον οποίο ετοιμάζουμε και θα δημοσιεύσουμε σύντομα.</p>
+</div>
+<div class="paragraph">
+<p>Επίσης ο παρακάτω οδηγός προϋποθέτει πως έχετε σταθερό υπολογιστή. Στα laptop είναι πολύ πιο δύσκολο να διερευνήσουμε τέτοιου είδους προβλήματα, και θα πρέπει να απευθυνθούμε σε κάποιο εξουσιοδοτημένο service για τη μάρκα του laptop μας.</p>
+</div>
+<div class="paragraph">
+<p>Τέλος, τα πρώτα 2 βήματα σε κάθε περίπτωση απευθύνονται σε όλους. Όμως για το 3ο και το 4ο χρειαστεί να ανοίξετε το κουτί του υπολογιστή και να ελέγξετε το εσωτερικό του, αναλαμβάνοντας το σύνολο της ευθύνης αν οτιδήποτε πάει στραβά.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-16.png" alt="Geek"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν δεν νιώθετε άνετα να το κάνετε αυτό, θα πρέπει να απευθυνθείτε σε κάποιο τεχνικό.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__1">1. Περίπτωση 1η: Δεν ανοίγει καθόλου ο υπολογιστής</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="__1_2">1.1. Βήμα 1ο: Ελέγχουμε την πρίζα</h3>
+<div class="paragraph">
+<p>Ναι, υπάρχουν πολλά ανέκδοτα επ' αυτού, και τίποτα δεν μας κάνει να αισθανόμαστε πιο ανόητοι από το να έχει απλά τραβηχτεί το καλώδιο του υπολογιστή, πχ καθώς εμείς ή κάποιος άλλος σκούπιζε με την ηλεκτρική.</p>
+</div>
+<div class="paragraph">
+<p>Εντούτοις, το να είναι αυτό το πρόβλημά μας είναι το καλύτερο δυνατό νέο, καθώς είναι εξαιρετικά απλό να το ελέγξουμε και να το φτιάξουμε.</p>
+</div>
+<div class="paragraph">
+<p>Βεβαιωνόμαστε λοιπόν πως το καλώδιο ρεύματος είναι γερά τοποθετημένο στο τροφοδοτικό και πως το διακοπτάκι, αν έχει το δικό μας τροφοδοτικό, βρίσκεται στη θέση "Ι", όχι στη θέση "Ο" (στη φωτογραφία είναι κλειστό).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-02.png" alt="lol1"></span></p>
+</div>
+<div class="paragraph">
+<p>Ακόμα κι αν φαίνεται εντάξει με το μάτι, το πατάμε καλά μέσα για να βεβαιωθούμε.</p>
+</div>
+<div class="paragraph">
+<p>Ομοίως βεβαιωνόμαστε πως η άλλη άκρη του καλωδίου είναι στην πρίζα, και πως δεν έχουμε κλείσει καταλάθος το πολύπριζο, αν έχει διακόπτη.</p>
+</div>
+<div class="paragraph">
+<p>Φυσικά, καλό είναι να βεβαιωθούμε πως λειτουργεί και η πρίζα - βάζοντας ας πούμε μια λάμπα για να δούμε αν ανάβει - και πως δεν έχει πέσει πχ κάποια ασφάλεια.</p>
+</div>
+<div class="paragraph">
+<p>Τέλος, αν έχουμε κατοικίδια (ή ποντίκια), ελέγχουμε την περίπτωση το ίδιο το καλώδιο να είναι μασημένο.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-03.png" alt="lol1"></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__2">2. Βήμα 2ο: Αποσυνδέουμε τα πάντα από τον υπολογιστή</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Αν δεν υπάρχει πρόβλημα με το καλώδιο, την πρίζα και τις συνδέσεις, βγάζουμε οτιδήποτε έχουμε συνδεδεμένο στον υπολογιστή: οθόνη, πληκτρολόγιο, ποντίκι, εκτυπωτή, scanner, τα πάντα εκτός από την τροφοδοσία, και δοκιμάζουμε να τον ξανανάψουμε.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-17.png" alt="lol1"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν δεν ανάβει ούτε έτσι, πηγαίνουμε κατευθείαν στο επόμενο βήμα.</p>
+</div>
+<div class="paragraph">
+<p>Αν με αυτόν τον τρόπο ανάβει, σημαίνει πως κάποια συσκευή που ήταν συνδεδεμένη τον βραχυκύκλωνε.</p>
+</div>
+<div class="paragraph">
+<p>Για να βρούμε την ένοχη συσκευή, αφού ξανακλείσουμε τον υπολογιστή, συνδέουμε πρώτα την οθόνη, και ξαναδοκιμάζουμε. Αν ανάβει, τον ξανακλείνουμε και συνδέουμε επιπλέον το πληκτρολόγιο. Ύστερα το ποντίκι. Δοκιμάζουμε με όλες τις συσκευές (κλείνοντας πάντα τον υπολογιστή πριν συνδέσουμε οτιδήποτε) , μέχρι να βρεθεί ο ένοχος.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__3">3. Βήμα 3ο: Έλεγχος Τροφοδοτικού</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Όπως προανέφερα, αν δεν έχετε ξανανοίξει ποτέ το κουτί του υπολογιστή και δεν αισθάνεστε άνετα να το κάνετε, καλύτερα να απευθυνθείτε σε κάποιο τεχνικό.</p>
+</div>
+<div class="paragraph">
+<p>Σας υπενθυμίζω πως αν συμβεί οτιδήποτε, αναλαμβάνετε το σύνολο της ευθύνης.</p>
+</div>
+<div class="paragraph">
+<p>δεν ανοίγει ο υπολογιστής 16</p>
+</div>
+<div class="paragraph">
+<p>Προσοχή! Πριν αγγίξουμε οτιδήποτε στο εσωτερικό του υπολογιστή, ακουμπάμε σε κάτι μεταλλικό (ιδανικά ένα σώμα καλοριφέρ) για να γειωθούμε. Αν έχουμε στατικό ηλεκτρισμό στα δάχτυλά μας, είναι πιθανό να κάψουμε τα ευαίσθητα κυκλώματα του υπολογιστή (δεν συμβαίνει συχνά, αλλά μπορεί να συμβεί).</p>
+</div>
+<div class="paragraph">
+<p>Πολλές motherboard έχουν ένα μικρό λαμπάκι LED στην επιφάνειά τους, που είναι αναμμένο ακόμα κι αν ο υπολογιστής είναι σβηστός, σαν ένδειξη πως η motherboard τροφοδοτείται σωστά.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-003.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν υπάρχει LED και είναι σβηστό ή δεν υπάρχει καθόλου LED, αποσυνδέουμε όλες τις συσκευές από το τροφοδοτικό (σκληρούς δίσκους, floppy drive, DVD Recorder, ανεμιστήρες, φώτα κλπ), ελέγχουμε τη σύνδεση του τροφοδοτικού με τη motherboard και ξαναδοκιμάζουμε.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-04.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Τέλος, αν έχουμε πολύμετρο, ελέγχουμε με αυτό το τροφοδοτικό μας. Προσέχουμε να το πιέσουμε αρκετά ώστε να έρχεται σε επαφή με το γυμνό καλώδιο, αλλά όχι υπερβολικά και προξενήσουμε ζημιά στη motherboard.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-07.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Τα πορτοκαλί καλώδια πρέπει να δίνουν 3.3 volt, τα κόκκινα καλώδια πρέπει να δίνουν 5 volt και τα κίτρινα πρέπει να δίνουν 12 volt. Τα μαύρα καλώδια είναι καλώδια γείωσης.</p>
+</div>
+<div class="paragraph">
+<p>Αν το πολύμετρο αποτύχει, τότε χρειάζεται αλλαγή το τροφοδοτικό μας. Δείτε το άρθρο για την επιλογή του ιδανικού τροφοδοτικού.</p>
+</div>
+<div class="sect2">
+<h3 id="__4_motherboard">3.1. Βήμα 4ο: Έλεγχος Motherboard</h3>
+<div class="paragraph">
+<p>Αν το LED είναι αναμμένο ή δεν υπάρχει LED αλλά το τροφοδοτικό είναι εντάξει, ελέγχουμε τη Motherboard.</p>
+</div>
+<div class="paragraph">
+<p>Αποσυνδέουμε όλες τις συσκευές από τη motherboard: σκληρό δίσκο, floppy drive, DVD recorder κλπ</p>
+</div>
+<div class="paragraph">
+<p>Βεβαιωνόμαστε πως το κουμπί του κουτιού είναι συνδεδεμένο στη Motherboard. Πρόκειται για ένα πολύ μικρό, διπλό καλώδιο, συνήθως μαυρόασπρο, με την ένδειξη Power SW (από το switch). Συμβουλευόμαστε το βιβλίο οδηγιών της Motherboard για το που πρέπει να είναι συνδεδεμένο.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-05.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Επειδή υπάρχει πάντα περίπτωση να έχει χαλάσει το ίδιο το κουμπί, μπορούμε να βγάλουμε το power sw και δοκιμάσουμε, με ένα κατσαβίδι, να φέρουμε σε επαφή τα δύο pin (ο σωστός όρος είναι να "βραχυκυκλώσουμε" τα pin, αλλά ακούγεται πιο τρομακτικό απ' ότι είναι).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-06.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν τίποτε από τα παραπάνω δεν λειτουργήσει, βγάζουμε όλες τις κάρτες επέκτασης που πιθανώς έχουμε (πχ ξεχωριστή κάρτα ήχου ή κάρτα δικτύου) εκτός από την κάρτα γραφικών και ξαναδοκιμάζουμε.</p>
+</div>
+<div class="paragraph">
+<p>Η κάρτα γραφικών είναι η μεγαλύτερη κάρτα στον υπολογιστή, και είναι η κάρτα με τη σύνδεση για την οθόνη.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-08.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν δεν έχουμε τέτοια κάρτα και η οθόνη συνδέεται απευθείας στη Motherboard, τότε η κάρτα γραφικών μας είναι ενσωματωμένη.</p>
+</div>
+<div class="paragraph">
+<p>Το τελικό βήμα για να ελέγξουμε τη motherboard είναι να βγάλουμε είτε την κάρτα γραφικών (ξεβιδώνοντας πρώτα τη βίδα που την κρατάει στο κουτί) είτε τη μνήμη RAM.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-09.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Προσοχή! Πολλές motherboard έχουν επιπλέον ένα μικρό πλαστικό κλιπάκι στη θύρα, που κρατάει σταθερή την κάρτα γραφικών. Εκτός από τη βίδα, θυμηθείτε να απαγκιστρώσετε κι αυτό για να τη βγάλετε, με προσοχή για να μην το σπάσετε.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-009.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Το να δοκιμάσουμε να ξεκινήσουμε τη Motherboard χωρίς κάρτα γραφικών ή μνήμη RAM θα έχει σαν αποτέλεσμα η motherboard να βγάλει μια σειρά "Μπιπ" (το τι ακριβώς μπιπ είναι εξαρτάται από τον κατασκευαστή του BIOS, και θα το μελετήσουμε σε βάθος σε άλλο άρθρο).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__5">3.2. Βήμα 5ο: Καλούμε τον τεχνικό</h3>
+<div class="paragraph">
+<p>Αν χωρίς κάρτα γραφικών ή RAM η motherboard δεν κάνει κανένα μπιπ τότε είτε χρειάζεται αντικατάσταση ή Motherboard ή ο επεξεργαστής, ή και τα δύο.</p>
+</div>
+<div class="paragraph">
+<p>Για να βεβαιωθούμε αν φταίει η motherboard ή ο επεξεργαστής, θα πρέπει να απευθυνθούμε σε κάποιον τεχνικό, που να μπορέσει να δοκιμάσει μια δεύτερη motherboard ή ένα δεύτερο επεξεργαστή στον υπολογιστή μας.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__2_2">4. Περίπτωση 2η: Ο υπολογιστής ανάβει, αλλά δεν έχουμε καθόλου εικόνα</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Κατ' αρχάς, αν ο υπολογιστής ανάβει, δεν έχουμε εικόνα, και μετά από λίγο ξανασβήνει μόνος του, 99% το πρόβλημα είναι η υπερθέρμανση του επεξεργαστή.</p>
+</div>
+<div class="paragraph">
+<p>Είτε έχει πιάσει πολλή σκόνη ο ανεμιστήρας, είτε έχει χαλάσει εντελώς, είτε έχει ξεραθεί η θερμική αλοιφή μεταξύ ψύκτρας και επεξεργαστή.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-0009.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Σε αυτή την περίπτωση, ο καθαρισμός της ψύκτρας, η αλλαγή ψύκτρας και η εφαρμογή νέας θερμικής αλοιφής θα λύσει το πρόβλημά μας.</p>
+</div>
+<div class="paragraph">
+<p>Αν ο υπολογιστής παραμένει σταθερά ανοιχτός και δεν σβήνει μόνος του, προχωράμε στα παρακάτω βήματα.</p>
+</div>
+<div class="sect2">
+<h3 id="__1_3">4.1. Βήμα 1ο: Έλεγχος Οθόνης</h3>
+<div class="paragraph">
+<p>Ελέγχουμε πως η οθόνη δεν είναι κλειστή. Δεν είναι ντροπή, συμβαίνει και στους καλύτερους. Προσωπικά, κόντεψα κάποτε να κάνω recompile τον kernel του linux στον υπολογιστή μου επειδή δεν είχα ήχο, αλλά τελικά είχα ξεχάσει να ανάψω τα ηχεία.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-10.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Ελέγχουμε επίσης αν είναι καλά συνδεδεμένη η οθόνη με τον υπολογιστή. Το καλώδιο πρέπει να πατάει καλά (και, ιδανικά, να είναι βιδωμένο) και στο κουτί αλλά και στην οθόνη.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-11.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Σημείωση: Δεν χρειάζεται να έχουμε καλώδιο και στο (2) και στο (3). Το (2) είναι για καλώδιο DVI, το (3) είναι για καλώδιο VGA (D-Sub 15), οποιοδήποτε από τα δύο αρκεί για να λειτουργήσει η οθόνη. Μιας και είμαστε εδώ, ελέγχουμε και το ότι η οθόνη παίρνει ρεύμα κανονικά με το καλώδιο (1)</p>
+</div>
+<div class="paragraph">
+<p>Τέλος, αν έχουμε κάποια παλιά, δεύτερη οθόνη, μπορούμε να δοκιμάσουμε και με εκείνη, να δούμε τι γίνεται.</p>
+</div>
+<div class="paragraph">
+<p>Επίσης, αν έχουμε δεύτερο υπολογιστή, μπορούμε να δοκιμάσουμε και με εκείνον την οθόνη μας, για να βεβαιωθούμε πως λειτουργεί. Ακόμα κι αν είναι laptop, όλα τα σύγχρονα laptop μπορούν να συνδεθούν με εξωτερική οθόνη.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-12.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν η οθόνη μας είναι εντάξει και αν δεν έχουμε δεύτερη οθόνη ή αν και με αυτή δεν ανάβει ο υπολογιστής, προχωράμε στο επόμενο βήμα.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__2_3">4.2. Βήμα 2ο: Αποσυνδέουμε τα πάντα από το κουτί</h3>
+<div class="paragraph">
+<p>Βγάζουμε ό,τι καλώδιο πηγαίνει στο κουτί εκτός από το ρεύμα και την οθόνη: ποντίκι, πληκτρολόγιο, scanner, εκτυπωτή, usb hub κλπ.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-17.png" alt="lo"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν ανάψει χωρίς κάποιο από αυτά, δοκιμάζουμε να ξανασυνδέσουμε μία-μία τις συσκευές για να δούμε ποια φταίει.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__3_ram">4.3. Βήμα 3ο: Ελέγχουμε τη RAM</h3>
+<div class="paragraph">
+<p>Όπως προανέφερα, αν δεν έχετε ξανανοίξει ποτέ το κουτί του υπολογιστή και δεν αισθάνεστε άνετα να το κάνετε, καλύτερα να απευθυνθείτε σε κάποιο τεχνικό.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-16.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Πριν αγγίξουμε οτιδήποτε, φροντίζουμε να είμαστε γειωμένοι (δείτε το 3ο βήμα στην προηγούμενη περίπτωση)</p>
+</div>
+<div class="paragraph">
+<p>Επίσης, δεν αποσυνδέουμε ούτε συνδέουμε τίποτα με τον υπολογιστή αναμμένο, τον κλείνουμε πρώτα.</p>
+</div>
+<div class="paragraph">
+<p>Να θυμάστε: Τα μόνα εντελώς απαραίτητα υποσυστήματα για να ανάψει ένας υπολογιστής είναι:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>το τροφοδοτικό</p>
+</li>
+<li>
+<p>η motherboard</p>
+</li>
+<li>
+<p>ο επεξεργαστής</p>
+</li>
+<li>
+<p>η μνήμη</p>
+</li>
+<li>
+<p>και η κάρτα γραφικών.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Όλα τα άλλα δεν συνεισφέρουν στο να ξεκινήσει ο υπολογιστής. Για να ελέγξουμε λοιπόν, αποσυνδέουμε όλα τα υπόλοιπα: αυτόνομη κάρτα ήχου ή κάρτα δικτύου (αν έχουμε), σκληρό δίσκο, DVD recorder, ανεμιστήρες εκτός του επεξεργαστή, πληκτρολόγιο, ποντίκι, εκτυπωτή κλπ</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-18.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Αν η οθόνη αντιλαμβάνεται πως ανοίγει ο υπολογιστής (πχ σταματάει να δείχνει κάποια ένδειξη "no signal"/"χωρίς σήμα") αλλά δεν δείχνει καθόλου τα γράμματα του BIOS, σημαίνει πως δέχεται έστω κάποιο σήμα από την κάρτα γραφικών, άρα είναι πιθανότερο να φταίει κάτι με τη motherboard ή τη μνήμη.</p>
+</div>
+<div class="paragraph">
+<p>Πρώτα βγάζουμε όλη τη μνήμη RAM.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-13.png" alt="url"></span></p>
+</div>
+<div class="paragraph">
+<p>Δοκιμάζοντας τώρα να ανάψουμε τον υπολογιστή, θα πρέπει η Motherboard να κάνει μια σειρά μπιπ, που να δείχνουν πως λείπει η μνήμη. Αν δεν κάνει κανένα μπιπ, το πιθανότερο είναι πως η motherboard έχει πρόβλημα και χρειάζεται αντικατάσταση.</p>
+</div>
+<div class="paragraph">
+<p>Αν κάνει μπιπ, βάζουμε ένα μόνο από τα αρθρώματα της μνήμης στη motherboard και ξαναδοκιμάζουμε. Κάνουμε δοκιμές σε όλες τις θέσεις της motherboard, και μετά δοκιμάζουμε ένα-ένα και με τα άλλα αρθρώματα.</p>
+</div>
+<div class="paragraph">
+<p>Στόχος είναι να δούμε αν φταίει μία από τις μνήμες, αν φταίει μία από τις θύρες ή αν το πρόβλημα είναι στη συνεργασία δύο αρθρωμάτων μνήμης μαζί.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__4">4.4. Βήμα 4ο: Ελέγχουμε την κάρτα γραφικών</h3>
+<div class="paragraph">
+<p>Αν δεν αλλάξει τίποτα με τις μνήμες, αφήνουμε ένα μόνο άρθρωμα μνήμης πάνω στη motherboard και ελέγχουμε την κάρτα γραφικών.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-08.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Οι κάρτες γραφικών για gamers χρειάζονται επιπλέον σύνδεση με το τροφοδοτικό, δεν παίρνουν ρεύμα μόνο από τη motherboard. Ελέγχουμε αν υπάρχει πρόβλημα με αυτή τη σύνδεση.</p>
+</div>
+<div class="paragraph">
+<p>Αν η motherboard μας έχει δεύτερη θύρα PCI express (τη θύρα στην οποία πατάει η κάρτα γραφικών), δοκιμάζουμε να τοποθετήσουμε την κάρτα γραφικών στη δεύτερη. Συνήθως είναι χρωματιστές, είτε του ίδιου ή διαφορετικού χρώματος.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="http://cdn.pcsteps.gr/wp-content/uploads/2014/02/%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82-009.png" alt="lol"></span></p>
+</div>
+<div class="paragraph">
+<p>Θυμηθείτε πριν βγάλετε την κάρτα γραφικών να ανοίξετε το κλιπ.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__5_2">4.5. Βήμα 5ο: Καλούμε τον τεχνικό</h3>
+<div class="paragraph">
+<p>Αν δεν λειτουργήσει ούτε με την παραπάνω μέθοδο (ή δεν έχουμε δεύτερη PCI Express), αυτό που πρέπει να γίνει είναι δοκιμή με κάρτα γραφικών και μνήμη που να γνωρίζουμε πως λειτουργεί, για να πιστοποιήσουμε ότι όντως δεν φταίει κάποιο κύκλωμα της Motherboard ή ακόμα και ο ίδιος ο επεξεργαστής.</p>
+</div>
+<div class="paragraph">
+<p>Καθώς είναι μάλλον απίθανο να έχουμε στο σπίτι περισσευούμενες μνήμες, κάρτες γραφικών, και επεξεργαστές αποδεχόμαστε την ήττα μας και απευθυνόμαστε σε κάποιο τεχνικό.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__pcsteps">5. Η βοήθεια του PCsteps αν δεν ανοίγει ο υπολογιστής</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Αν έχετε κάποιο πρόβλημα όσον αφορά το να ανοίξει ο υπολογιστής, το οποίο δεν περιγράφεται στον οδηγό μας, γράψτε μας στην ενότητα ερωτήσεις.</p>
+</div>
+<div class="paragraph">
+<p>Όπως βλέπετε από τις παραπάνω διαδικασίες, η διάγνωση του προβλήματος αυτού του είναι καθαρά μηχανική, και είναι δύσκολο να γίνει εξ' αποστάσεως.</p>
+</div>
+<div class="paragraph">
+<p>Εντούτοις, θα κάνουμε το καλύτερο που μπορούμε για να σας βοηθήσουμε, εμείς αλλά και οι υπόλοιποι αναγνώστες μας!</p>
+</div>
+<div class="paragraph">
+<p>Αναδημοσιευση από <a href="http://www.pcsteps.gr/15405-%CE%B4%CE%B5%CE%BD-%CE%B1%CE%BD%CE%BF%CE%AF%CE%B3%CE%B5%CE%B9-%CE%BF-%CF%85%CF%80%CE%BF%CE%BB%CE%BF%CE%B3%CE%B9%CF%83%CF%84%CE%AE%CF%82/">PCSTEPS</a></p>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/02/21/Den-anoigei-o-ypologisths-44-Bhmata-gia-Diagnwsh.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/02/21/Den-anoigei-o-ypologisths-44-Bhmata-gia-Diagnwsh.html</guid><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Sat, 21 Feb 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Django MongoDB Engine [Part 1]]]></title><description><![CDATA[<div class="sect1">
+<h2 id="_installation">1. Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Django MongoDB Engine depends on</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://django-nonrel.org/">Django-nonrel</a>, a fork of Django that adds support for non-relational databases.</p>
+</li>
+<li>
+<p><a href="https://github.com/django-nonrel/djangotoolbox">djangotoolbox</a>, a bunch of utilities for non-relational Django applications and backends.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It’s highly recommended (although not required) to use a <a href="http://www.virtualenv.org/">virtualenv</a> for your project to not mess up other Django setups.</p>
+</div>
+<div class="sect2">
+<h3 id="_virtualenv">1.1. virtualenv</h3>
+<div class="paragraph">
+<p><strong>virtualenv</strong> is a tool to create isolated Python environments.</p>
+</div>
+<div class="paragraph">
+<p>If not already installed, grab a copy from the Cheeseshop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">pip install virtualenv</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To set up a virtual environment for your project, use</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">virtualenv myproject</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To join the environment, use (in Bash):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">source myproject/bin/activate</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_django_nonrel">1.2. Django-nonrel</h3>
+<div class="paragraph">
+<p>Django fork with support for NoSQL databases</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">pip install git+https://github.com/django-nonrel/django@nonrel-1.7</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_djangotoolbox">1.3. djangotoolbox</h3>
+<div class="paragraph">
+<p>Djangotoolbox provides a common API for running Django on non-relational/NoSQL databases.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">pip install git+https://github.com/django-nonrel/djangotoolbox</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The djangotoolbox.admin module provides admin overrides for making django.contrib.auth work correctly in the admin UI. Simply add 'djangotoolbox' to INSTALLED_APPS after django.contrib.admin.</p>
+</div>
+<div class="paragraph">
+<p>This will disable features that require JOINs. If you still need permission handling you should use the nonrel permission backend.</p>
+</div>
+<div class="sect3">
+<h4 id="_django_permission_backend_nonrel">1.3.1. django-permission-backend-nonrel</h4>
+<div class="paragraph">
+<p>A Django authentication backend that supports Django&#8217;s user and group permissions on Django-Nonrel.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get the code from Github:</p>
+<div class="literalblock">
+<div class="content">
+<pre>git clone https://github.com/django-nonrel/django-permission-backend-nonrel.git</pre>
+</div>
+</div>
+</li>
+<li>
+<p>add <strong>permission_backend_nonrel.backends.NonrelPermissionBackend</strong> to your AUTHENTICATION_BACKENDS and <strong>permission_backend_nonrel</strong> to your INSTALLED_APPS</p>
+<div class="literalblock">
+<div class="content">
+<pre>settings.py:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>AUTHENTICATION_BACKENDS = (
+    ...
+    'permission_backend_nonrel.backends.NonrelPermissionBackend',
+)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>INSTALLED_APPS = (
+    ...
+    'permission_backend_nonrel',
+)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>It&#8217;s important to put 'permission_backend_nonrel after djangotoolbox, because permission_backend_nonrel.admin replaces djangotoolbox&#8217;s User admin site.</p>
+<div class="paragraph">
+<p>Permission and groups can be assigned and modified via Django&#8217;s admin interface:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://camo.githubusercontent.com/603ca1906c7fe866050b50b90337e9a8925a3301/687474703a2f2f666c6f6f6f6f66696c65732e61707073706f742e636f6d2f73657276652f66696c65732f61646d696e2e6a7065672f">Django-nonrel admin with user_permissions and groups</a></p>
+</div>
+<div class="paragraph">
+<p>Django-gaeauth admin interface with user_permissions and groups</p>
+</div>
+</li>
+<li>
+<p>Now you should be able to use all the standard Django permission methods and decorators, like user.has_perm('foo') and so on.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_django_mongodb_engine">1.4. Django MongoDB Engine</h3>
+<div class="paragraph">
+<p>You should use the latest Git
+revision.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">pip install git+https://github.com/django-nonrel/mongodb-engine</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration">2. Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Database setup is easy (see also the <a href="https://docs.djangoproject.com/en/dev/ref/settings/#databases">Django database setup docs</a>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-python" data-lang="python">DATABASES = {
+   'default' : {
+      'ENGINE' : 'django_mongodb_engine',
+      'NAME' : 'my_database'
+   }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Django MongoDB Engine also takes into account the HOST, PORT, USER, PASSWORD and OPTIONS settings.</p>
+</div>
+<div class="paragraph">
+<p>Possible values of OPTIONS are described in the <a href="https://django-mongodb-engine.readthedocs.org/en/latest/reference/settings.html">settings reference</a>.</p>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/02/20/Django-MongoDB-Engine-Part-1.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/02/20/Django-MongoDB-Engine-Part-1.html</guid><category><![CDATA[python]]></category><category><![CDATA[mongo]]></category><category><![CDATA[django]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Fri, 20 Feb 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Linux: HowTo Encrypt And Decrypt Files With A Password]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To encrypt and decrypt files with a password, use gpg command. It is an encryption and signing tool for Linux/UNIX like operating system such as FreeBSD/Solaris and others.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gnupg">1. gnupg</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>GnuPG stands for GNU Privacy Guard and is GNU&#8217;s tool for secure communication and data storage. It can be used to encrypt data and to create digital signatures. It includes an advanced key management facility.</p>
+</div>
+<div class="sect2">
+<h3 id="_encrypting_a_file_in_linux">1.1. Encrypting a file in linux</h3>
+<div class="paragraph">
+<p>To encrypt a single file, use command gpg as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ gpg -c filename</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To encrypt myfinancial.info.txt file, type the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ gpg -c myfinancial.info.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sample output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">Enter passphrase:&lt;YOUR-PASSWORD&gt;
+Repeat passphrase:&lt;YOUR-PASSWORD&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will create a myfinancial.info.txt.gpg file. Where,</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-c </dt>
+<dd>
+<p>Encrypt with symmetric cipher using a passphrase. The default symmetric cipher used is CAST5, but may be chosen with the --cipher-algo option. This option may be combined with --sign (for a signed and symmetrically encrypted message), --encrypt (for a message that may be decrypted via a secret key or a passphrase), or --sign and --encrypt together (for a signed message that may be decrypted via a secret key or a passphrase).</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Please note that if you ever forgot your password (passphrase), you cannot recover the data as it use very strong encryption.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decrypt_a_file">1.2. Decrypt a file</h3>
+<div class="paragraph">
+<p>To decrypt file use the gpg command as follow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ gpg myfinancial.info.txt.gpg</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sample outputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">gpg myfinancial.info.txt.gpg
+gpg: CAST5 encrypted data
+Enter passphrase:&lt;YOUR-PASSWORD&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Decrypt file and write output to file vivek.info.txt you can run command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ gpg myfinancial.info.gpg –o vivek.info.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also note that if file extension is .asc, it is a ASCII encrypted file and if file extension is .gpg, it is a binary encrypted file.</p>
+</div>
+<div class="paragraph">
+<p>Reblog from <a href="http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html">nixCraft</a></p>
+</div>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/02/18/Linux-HowTo-Encrypt-And-Decrypt-Files-With-A-Password.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/02/18/Linux-HowTo-Encrypt-And-Decrypt-Files-With-A-Password.html</guid><category><![CDATA[linux]]></category><category><![CDATA[security]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Wed, 18 Feb 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Let's Chat on Ubuntu]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Self-hosted chat app for small teams <a href="http://sdelements.github.io/lets-chat" class="bare">http://sdelements.github.io/lets-chat</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://camo.githubusercontent.com/6c55e0f17d53d100977a8c6d49ce9575681da0fd/687474703a2f2f692e696d6775722e636f6d2f7644626858756c2e706e67" alt="let's chat">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features_and_stuff">1. Features and Stuff</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>BYOS (bring your own server)</p>
+</li>
+<li>
+<p>Persistent messages</p>
+</li>
+<li>
+<p>Multiple rooms</p>
+</li>
+<li>
+<p>New message alerts / notifications</p>
+</li>
+<li>
+<p>Mentions (hey @you)</p>
+</li>
+<li>
+<p>Image embeds</p>
+</li>
+<li>
+<p>Code pasting</p>
+</li>
+<li>
+<p>File uploads (Local / Amazon S3)</p>
+</li>
+<li>
+<p>Transcripts / chat history</p>
+</li>
+<li>
+<p>XMPP Multi-user chat (MUC)</p>
+</li>
+<li>
+<p>Local / Kerberos / LDAP authentication</p>
+</li>
+<li>
+<p>Hubot Adapter</p>
+</li>
+<li>
+<p>EST-like API</p>
+</li>
+<li>
+<p>MIT Licensed</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">2. Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_docker">2.1. Docker</h3>
+<div class="paragraph">
+<p>The current Docker file creates a Let&#8217;s Chat container, with no on-board MongoDB instance. It requires a link to a separate Mongo container.</p>
+</div>
+<div class="paragraph">
+<p>Make sure you have Docker installed. The following is a basic example of how to use the Dockerfile. We recommend reading documentation and/or tutorials, if you have never used Docker before.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">docker pull mongo</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">git clone https://github.com/sdelements/lets-chat.git
+cd lets-chat
+docker build -t lets-chat .</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">docker run -d --name db mongo
+docker run -p 5000:5000 --link db:db lets-chat</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now access the app at <a href="http://localhost:5000" class="bare">http://localhost:5000</a>.</p>
+</div>
+<div class="paragraph">
+<p>Restart the service</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">docker run start db
+docker run -p 5000:5000 --link db:db lets-chat</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://camo.githubusercontent.com/f59d2c3525b16e008c018fa3925841d69b8124a3/687474703a2f2f692e696d6775722e636f6d2f4334754d4436372e706e67" alt="let's chat">
+</div>
+</div>
+</div>
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/02/18/Lets-Chat-on-Ubuntu.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/02/18/Lets-Chat-on-Ubuntu.html</guid><category><![CDATA[docker]]></category><category><![CDATA[chat]]></category><category><![CDATA[hot]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Wed, 18 Feb 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Indexing large collection of medical files]]></title><description><![CDATA[<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>We have a large collection of medical files and we want to search and find similar symptoms to give a diagnosis. The medical files are in
+two languages greek and english, this is our main problem. Another problem we have is the meta information of the document are not well
+document and we have to extract them from the document.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_processing_data_cleaning">1. Test Processing &amp; Data Cleaning</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_indexing">2. Data Indexing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_solr_on_docker">2.1. Solr on Docker</h3>
+<div class="paragraph">
+<p>This repository triggers the <a href="https://index.docker.io/u/makuk66/docker-solr/">makuk66/docker-solr</a> trusted build on the Docker index. To run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">docker pull makuk66/docker-solr
+docker run -it -p 8983:8983 -t makuk66/docker-solr</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then go to <a href="http://localhost:8983/solr" class="bare">http://localhost:8983/solr</a> (adjust the hostname for your docker server).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_collection_index">2.2. Configure collection index</h3>
+<div class="sect3">
+<h4 id="_greek_language">2.2.1. Greek Language</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;filter class="solr.GreekLowerCaseFilterFactory"/&gt;
+&lt;filter class="solr.GreekStemFilterFactory"/&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_evaluation_of_searching_method">3. Evaluation of searching method</h2>
+<div class="sectionbody">
+
+</div>
+</div>]]></description><link>http://theofilis.github.io/2015/02/15/Indexing-large-collection-of-medical-files.html</link><guid isPermaLink="true">http://theofilis.github.io/2015/02/15/Indexing-large-collection-of-medical-files.html</guid><category><![CDATA[solr]]></category><category><![CDATA[information retrieve]]></category><dc:creator><![CDATA[George Theofilis]]></dc:creator><pubDate>Sun, 15 Feb 2015 00:00:00 GMT</pubDate></item></channel></rss>
