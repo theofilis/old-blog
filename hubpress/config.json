@@ -11,7 +11,10 @@
     "postsPerPage": "10",
     "googleAnalytics": "UA-51201203-1",
     "disqus": "theofilisgithubio",
-    "url": "http://blog.george-theofilis.com"
+    "url": "http://blog.george-theofilis.com",
+    "description": "",
+    "logo": "",
+    "delay": ""
   },
   "socialnetwork": {
     "email": "theofilis.g@gmail.com",
@@ -20,7 +23,10 @@
     "linkedin": "https://gr.linkedin.com/in/gtheofilis/en",
     "facebook": "https://www.facebook.com/theofilis.g",
     "instagram": "https://www.instagram.com/theofilis.g/",
-    "github": "https://github.com/theofilis"
+    "github": "https://github.com/theofilis",
+    "pinterest": "",
+    "flickr": "",
+    "stackoverflow": ""
   },
   "theme": {
     "name": "uno",
